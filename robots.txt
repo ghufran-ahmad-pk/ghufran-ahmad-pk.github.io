@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ghufran-ahmad-pk.github.io/sitemap.xml

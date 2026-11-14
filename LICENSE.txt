@@ -1,0 +1,17 @@
+Copyright (c) 2026 Ghufran Ahmad (GhufranMedDesigns). All rights reserved.
+
+The text, images, infographics, videos and interactive learning tools on this
+website are the work of Ghufran Ahmad unless stated otherwise. You may view and
+share links to them. You may not copy, re-host, sell or present them as your
+own without written permission.
+
+Third-party material keeps its own licence:
+- Anatomy models in Breath Journey: BodyParts3D (DBCLS), CC BY 4.0, and the
+  HuBMAP Human Reference Atlas 3D models (Browne and Schlehlein), CC BY 4.0.
+- Brain model in the CNS 3D Atlas: adapted from "Brain for Blender" by
+  Anderson M. Winkler (brainder.org), CC BY-SA 3.0. The adapted brain model
+  itself remains available under CC BY-SA 3.0.
+- Fonts: Instrument Serif, Instrument Sans, Geist Mono (SIL Open Font License 1.1).
+- Lenis smooth scrolling (MIT License).
+
+Educational content. Not medical advice.
