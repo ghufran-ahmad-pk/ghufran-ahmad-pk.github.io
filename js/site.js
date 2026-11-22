@@ -277,7 +277,7 @@
     if (str(r.summary)) kids.push(h("p", { class: "muted", text: str(r.summary) }));
     var dl = [];
     if (str(r.role)) dl.push(h("div", null, [h("dt", { text: "Role" }), h("dd", { text: str(r.role) })]));
-    if (str(r["with"])) dl.push(h("div", null, [h("dt", { text: "With" }), h("dd", { text: str(r["with"]) })]));
+    if (str(r["with"])) dl.push(h("div", null, [h("dt", { text: "With" }), h("dd", null, safeUrl(r.withUrl) ? ext(h("a", { class: "textlink", href: safeUrl(r.withUrl) }, [str(r["with"]) + " ", arrow()])) : str(r["with"]))]));
     if (str(r.when)) dl.push(h("div", null, [h("dt", { text: "When" }), h("dd", { text: str(r.when) })]));
     if (str(r.note)) dl.push(h("div", null, [h("dt", { text: "Note" }), h("dd", { text: str(r.note) })]));
     if (dl.length) kids.push(h("dl", null, dl));
@@ -1033,7 +1033,8 @@
         var r = el.getBoundingClientRect();
         return { el: el, speed: parseFloat(el.getAttribute("data-parallax")) || 0.1, mid: r.top + window.scrollY + r.height / 2 };
       }) : [];
-      // the portrait that travels from the hero into the About block
+      // the portrait that travels from the hero into the About block.
+      // It is one fixed-size layer that only moves and scales (no resizing), so phones can keep it smooth.
       (function () {
         var a = $("#hero-photo"), b = $("#intro-photo"), mainEl = $("#main");
         var old = $(".fly-photo");
@@ -1045,12 +1046,16 @@
         var el = old || mainEl.appendChild(h("div", { class: "fly-photo", "aria-hidden": "true" }, h("img", { src: $("img", a).getAttribute("src"), alt: "" })));
         el.hidden = false;
         var m = mainEl.getBoundingClientRect(), ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
-        fly = {
-          el: el,
-          a: { x: ra.left - m.left, y: ra.top - m.top, w: ra.width, h: ra.height },
-          b: { x: rb.left - m.left, y: rb.top - m.top, w: rb.width, h: rb.height },
-          end: Math.max(260, (rb.top - m.top) - window.innerHeight * 0.2)
-        };
+        var A = { x: ra.left - m.left, y: ra.top - m.top, s: ra.width / rb.width }, B = { x: rb.left - m.left, y: rb.top - m.top };
+        var end = Math.max(260, B.y - window.innerHeight * 0.2);
+        var st = el.style;
+        st.width = rb.width.toFixed(1) + "px"; st.height = rb.height.toFixed(1) + "px";
+        st.setProperty("--ax", A.x.toFixed(1) + "px"); st.setProperty("--ay", A.y.toFixed(1) + "px"); st.setProperty("--as", A.s.toFixed(4));
+        st.setProperty("--bx", B.x.toFixed(1) + "px"); st.setProperty("--by", B.y.toFixed(1) + "px"); st.setProperty("--end", end.toFixed(0) + "px");
+        var native = !!(window.CSS && CSS.supports && CSS.supports("animation-timeline: scroll()"));
+        root.classList.toggle("fly-css", native);        // the browser animates it off the main thread
+        if (native) st.transform = "";
+        fly = native ? null : { el: el, A: A, B: B, end: end };
         root.classList.add("fly-on");
       })();
       fills = RM ? [] : $$("[data-fill]").map(function (el) {
@@ -1076,14 +1081,11 @@
         track.style.transform = "translate3d(" + (-p * dist).toFixed(1) + "px,0,0)";
         if (fill) fill.style.setProperty("--p", p.toFixed(4));
       }
-      if (fly) {
-        var k = clamp(y / fly.end, 0, 1);
-        var e = 0.5 * k + 0.5 * (k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2);
-        var A = fly.a, B = fly.b, fw = A.w + (B.w - A.w) * e;
-        fly.el.style.width = fw.toFixed(1) + "px";
-        fly.el.style.height = (A.h + (B.h - A.h) * e).toFixed(1) + "px";
-        fly.el.style.borderRadius = (A.w / 2 + (16 - A.w / 2) * Math.min(1, e * 1.6)).toFixed(1) + "px";
-        fly.el.style.transform = "translate3d(" + (A.x + (B.x - A.x) * e).toFixed(1) + "px," + (A.y + (B.y - A.y) * e).toFixed(1) + "px,0)";
+      if (fly) {                                         // fallback for browsers without scroll-driven animations
+        var k = clamp(y / fly.end, 0, 1), e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+        e = 0.5 * k + 0.5 * e;
+        var A = fly.A, B = fly.B;
+        fly.el.style.transform = "translate3d(" + (A.x + (B.x - A.x) * e).toFixed(1) + "px," + (A.y + (B.y - A.y) * e).toFixed(1) + "px,0) scale(" + (A.s + (1 - A.s) * e).toFixed(4) + ")";
       }
       for (var f = 0; f < fills.length; f++) {
         var fo = fills[f], prog = clamp((y + vh * 0.82 - fo.top) / (fo.h + vh * 0.32), 0, 1) * (fo.words.length + 2);

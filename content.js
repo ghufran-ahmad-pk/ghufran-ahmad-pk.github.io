@@ -55,7 +55,7 @@ window.SITE_CONTENT = {
   links: {
     linkedin:  "https://linkedin.com/in/ghufranmeddesigns",
     github:    "",   // hidden. Paste your GitHub profile link here if you want it shown.
-    cv:        "",   // your CV file, for example "assets/cv.pdf". Adds a "Download CV" button.
+    cv:        "assets/cv.pdf",   // the web copy of your CV (phone number removed). Set to "" to hide the button.
     orcid:     "https://orcid.org/0009-0008-8929-9729",
     instagram: "https://www.instagram.com/ghufran.meddesigns",
     youtube:   "https://www.youtube.com/@ghufranmeddesigns",
@@ -109,18 +109,15 @@ window.SITE_CONTENT = {
       type: "tool",
       featured: true,
       draft: false,
-      title: "CNS 3D Atlas: the central nervous system",
-      // WHEN YOU ADD THE DISEASE CHAPTERS, replace the caption below with this one:
-      //   "An interactive 3D atlas for learning the anatomy, diseases and drugs of the central nervous system, from the whole brain down to a single synapse, with guided tours and beginner, student and advanced levels."
-      // and change status to "Ready to explore".
-      caption: "An interactive 3D atlas for learning the anatomy of the central nervous system, from the whole brain down to a single synapse, with guided tours and beginner, student and advanced levels. It is the base for the disease and drug lessons that come next.",
+      title: "CNS Atlas: brain diseases and their drugs",
+      caption: "An interactive 3D neuropharmacology tool for pharmacy and medical students. Each lesson starts with a healthy brain, shows what goes wrong in the disease, then places every drug at the spot where it acts. It covers Parkinson disease, Alzheimer disease, multiple sclerosis, ALS and Huntington disease, each with a case quiz and a quick revision mode, plus a 3D brain to explore at beginner, student and advanced levels.",
       src: "cns-atlas/index.html",
       image: "assets/images/cns-atlas-poster.jpg",
-      alt: "Cover image for the CNS 3D Atlas: a colour-coded 3D brain",
+      alt: "Cover image for CNS Atlas: a see-through 3D brain with the striatum and substantia nigra labelled",
       status: "Ready to explore",
-      why: "Third-year Pharmacology-II covers many CNS drugs, so I built this to help students see the anatomy first, then the diseases and the drugs.",
-      note: "Educational visualization for students. Not for clinical use.",
-      credit: "Brain model adapted from \"Brain for Blender\" by Anderson M. Winkler (brainder.org), CC BY-SA 3.0.",
+      why: "Third-year Pharmacology-II covers many CNS drugs. I built the brain anatomy first, then added five diseases and placed each drug where it acts.",
+      note: "For learning only. Not for patient care. The tool lists its sources: drug facts are checked against Katzung, Lippincott Pharmacology and FDA labels.",
+      credit: "Brain model adapted from \"Brain for Blender\" by Anderson M. Winkler (brainder.org), CC BY-SA 3.0. Neuron shapes from NeuroMorpho.Org (Jacobs archive). Music: \"Contemplation\" by Joth (CC0).",
       result: "",
       tools: [],
       date: "2026",
@@ -426,7 +423,8 @@ window.SITE_CONTENT = {
       summary: "A practical bedside guide for nurses, junior doctors and pharmacists in Pakistan, with 42 chapters across nine parts.",
       role: "Editor. I compile, edit and produce the book with a senior colleague who is first author. Content is reviewed by my senior colleague and a doctor.",
       when: "Aug 2026 to present",
-      with: "",            // name your senior here ONLY after he agrees, for example "First author: ..."
+      with: "First author: Adeel Bhutta",
+      withUrl: "https://www.linkedin.com/in/adeel-bhutta-8a8839276/",
       note: "In review. Not published yet.",
       link: ""
     },
@@ -436,9 +434,10 @@ window.SITE_CONTENT = {
       status: "Under review",
       title: "Safety of long-term proton pump inhibitor use across renal, bone, and rebound acid hypersecretion outcomes: a critical narrative review of study design, comparators, and mechanisms",
       summary: "A critical narrative review of long-term proton pump inhibitor (PPI) use, examining renal, bone and rebound acid hypersecretion outcomes, with a focus on study design, comparators and mechanisms.",
-      role: "Author",
+      role: "First and corresponding author",
       when: "Aug 2026 to present",
-      with: "",
+      with: "Contributor: Adeel Bhutta",
+      withUrl: "https://www.linkedin.com/in/adeel-bhutta-8a8839276/",
       note: "Submitted to the European Journal of Clinical Pharmacology, in peer review.",
       link: ""
     },
