@@ -1,19 +1,5 @@
-/* =====================================================================
-   content.js  |  THE ONLY FILE YOU EDIT
-   ---------------------------------------------------------------------
-   Everything the website shows lives here: text, links, projects,
-   research status labels and certificates.
-
-   RULES
-   1. Text goes between "double quotes". Keep the comma at the end of a line.
-   2. An empty field looks like this:  ""   Empty fields are hidden on the site.
-   3. Never delete a field name. Leave it empty instead.
-   4. To add something, copy a TEMPLATE block (see the bottom of each list),
-      paste it above the "TEMPLATES" comment, and fill it in.
-
-   If the site goes blank after an edit, you probably removed a comma or a
-   quote. Undo your last change and try again.
-   ===================================================================== */
+/* content.js: all text, links, projects and certificates for the site.
+   Empty "" fields are hidden. Keep the commas. */
 
 window.SITE_CONTENT = {
 
@@ -25,12 +11,12 @@ window.SITE_CONTENT = {
     brand: "GhufranMedDesigns",
     role: "Third-year PharmD student",
     location: "Multan, Pakistan",
-    // One honest line. Shown in the hero on the home page.
+    // Hero line on the home page.
     // Put *stars* around ONE word to colour it with the accent.
     updated: "November 2026",                   // shown in the footer as "Last updated ..."
     photo: "assets/images/ghufran-ahmad.jpg",   // shown on the About page. Empty = no photo.
-    headline: "Pharmacy student turning drug mechanisms into *visuals*.",
-    subline: "I make infographics and interactive learning tools that explain how drugs and the body work, and I am learning to do research properly. A student at the beginning, not a researcher yet."
+    headline: "I make pharmacology easier to *see*.",
+    subline: "Mostly infographics and 3D learning tools for pharmacy students. On the side, I'm learning how research is actually done."
   },
 
   /* ------------------------------------------------------------------
@@ -40,9 +26,9 @@ window.SITE_CONTENT = {
      Example to add:  { number: "60+", label: "posts on LinkedIn" },
      ------------------------------------------------------------------ */
   facts: [
-    { number: "2",    label: "interactive 3D learning tools" },
-    { number: "12",   label: "mechanism posts, each with a cited source" },
-    { number: "8",    label: "certificates" }
+    { number: "auto:tools",        label: "interactive 3D learning tools" },        // counted for you from section 4
+    { number: "Weekly",            label: "mechanism posts, each with a cited source" },
+    { number: "auto:certificates", label: "certificates" }                          // counted for you from section 8
   ],
 
   /* ------------------------------------------------------------------
@@ -88,13 +74,13 @@ window.SITE_CONTENT = {
       featured: true,
       draft: false,
       title: "Breath Journey: Every Breath, Body to Cell",
-      caption: "An interactive 3D lesson for learning respiratory anatomy, physiology and disease. It follows one breath from the whole body down to the cell across eleven hands-on chapters, and the Clinic chapter covers nine conditions, from asthma and pneumonia to opioid overdose and carbon monoxide poisoning.",
+      caption: "A 3D lesson on breathing. You follow one breath from the nose down to a single cell over 11 chapters. The last one, Clinic, covers 9 conditions, including asthma, pneumonia, opioid overdose and carbon monoxide poisoning.",
       src: "breath-journey/index.html",              // the full-screen page it opens
       image: "assets/images/breath-journey-poster.jpg",
       alt: "Cover image for Breath Journey: a transparent 3D body with the lungs highlighted",
       status: "Ready to explore",
-      why: "It began as an experiment in turning one physiology topic into something a student can explore, not just read.",
-      note: "Educational visualization for students. Not for clinical use.",
+      why: "It started as an experiment. I wanted to see if one physiology topic could become something you click through and explore, instead of a page you read.",
+      note: "For learning only. Not for patient care.",
       credit: "Anatomy models: BodyParts3D (DBCLS, CC BY 4.0) and HuBMAP Human Reference Atlas 3D models (Browne and Schlehlein, CC BY 4.0).",
       result: "",
       tools: [],
@@ -110,14 +96,14 @@ window.SITE_CONTENT = {
       featured: true,
       draft: false,
       title: "CNS Atlas: brain diseases and their drugs",
-      caption: "An interactive 3D neuropharmacology tool for pharmacy and medical students. Each lesson starts with a healthy brain, shows what goes wrong in the disease, then places every drug at the spot where it acts. It covers Parkinson disease, Alzheimer disease, multiple sclerosis, ALS and Huntington disease, each with a case quiz and a quick revision mode, plus a 3D brain to explore at beginner, student and advanced levels.",
+      caption: "My biggest project so far. Each lesson starts with a healthy brain, shows what goes wrong in the disease, and then puts each drug where it acts. Five diseases for now: Parkinson, Alzheimer, multiple sclerosis, ALS and Huntington. Every lesson ends with a case quiz, and there is a quick revision mode for the night before an exam.",
       src: "cns-atlas/index.html",
       image: "assets/images/cns-atlas-poster.jpg",
-      alt: "Cover image for CNS Atlas: a see-through 3D brain with the striatum and substantia nigra labelled",
+      alt: "Cover image for CNS Atlas: the headline Follow each drug to its target in the brain, beside a branching neuron",
       status: "Ready to explore",
-      why: "Third-year Pharmacology-II covers many CNS drugs. I built the brain anatomy first, then added five diseases and placed each drug where it acts.",
-      note: "For learning only. Not for patient care. The tool lists its sources: drug facts are checked against Katzung, Lippincott Pharmacology and FDA labels.",
-      credit: "Brain model adapted from \"Brain for Blender\" by Anderson M. Winkler (brainder.org), CC BY-SA 3.0. Neuron shapes from NeuroMorpho.Org (Jacobs archive). Music: \"Contemplation\" by Joth (CC0).",
+      why: "Pharmacology-II this year is full of CNS drugs, so I started here. It is my biggest build so far: the brain anatomy came first, then five diseases, then each drug placed where it acts.",
+      note: "For learning only. Not for patient care.",
+      credit: "Drug facts checked against Katzung, Basic and Clinical Pharmacology, Lippincott Pharmacology and FDA labels, as listed inside the tool. Brain model adapted from \"Brain for Blender\" by Anderson M. Winkler (brainder.org), CC BY-SA 3.0. Neuron shapes from NeuroMorpho.Org (Jacobs archive). Music: \"Vaporware\" by The Cynic Project (OpenGameArt.org, CC0). Button sounds: Kenney UI SFX Set (CC0).",
       result: "",
       tools: [],
       date: "2026",
@@ -132,7 +118,7 @@ window.SITE_CONTENT = {
       featured: true,
       draft: false,
       title: "Metformin: a newly described brain pathway",
-      caption: "Infographic summarising a 2025 mouse study (Lin et al., Science Advances). Human studies are still needed.",
+      caption: "Based on a 2025 mouse study (Lin et al., Science Advances). It was done in mice, so it still has to be shown in people.",
       series: "",
       image: "assets/images/metformin-mechanism.png",
       alt: "Infographic titled Metformin: a newly described brain pathway",
@@ -153,7 +139,7 @@ window.SITE_CONTENT = {
       featured: true,
       draft: false,
       title: "5 drug interactions every pharmacist should know",
-      caption: "Reference-style infographic with severity colour coding.",
+      caption: "Five combinations worth checking before you dispense, colour coded by how serious they are.",
       series: "",
       image: "assets/images/drug-interactions-5.png",
       alt: "Infographic titled 5 drug interactions every pharmacist should know",
@@ -192,10 +178,10 @@ window.SITE_CONTENT = {
     {
       id: "aloe-pharmacognosy",
       type: "exhibit",
-      featured: false,
+      featured: true,
       draft: false,
       title: "Aloe (Aloe barbadensis) pharmacognosy profile",
-      caption: "A complete pharmacognostic profile of Aloe barbadensis, prepared and presented at the Allied PharmaExhibition 2026, Allied Institute, Multan. I designed the poster and presented it alongside my group, supervised by Dr. Asad Saleem Sial.",
+      caption: "Our group's pharmacognosy table on Aloe barbadensis at the Allied PharmaExhibition 2026 in Multan. I designed the poster and presented with my group. Supervised by Dr. Asad Saleem Sial.",
       series: "",
       image: "assets/images/aloe-pharmacognosy.jpg",
       alt: "Exhibition table with labelled samples: dried aloe latex, aloe gel, a market product, an aloe leaf and aloe vera plants",
@@ -229,7 +215,7 @@ window.SITE_CONTENT = {
       image: "assets/images/my-new-tool-poster.jpg", // a screenshot, wide shape
       alt: "",
       status: "Ready to explore",
-      note: "Educational visualization for students. Not for clinical use.",
+      note: "For learning only. Not for patient care.",
       credit: "",                                   // credit and licence for any third-party 3D models
       result: "",
       tools: [],
@@ -338,15 +324,15 @@ window.SITE_CONTENT = {
   channels: {
     // which links become big cards on the home page. Others stay as footer links only.
     cards: ["linkedin", "facebook"],
-    linkedinNote:  "Infographics and notes on what I am learning.",
+    linkedinNote:  "Infographics, and notes on what I'm learning.",
     facebookNote:  "Infographics for pharmacy and medical students.",
     instagramNote: "",
     youtubeNote:   "",
 
     highlight: {
-      label: "Most discussed post",
+      label: "Most discussed",
       big: "450+ reactions, 49 comments",
-      text: "A metformin mechanism infographic on LinkedIn.",
+      text: "My metformin post. Still the one people comment on most.",
       url: "https://lnkd.in/p/dptf3tgV"
     },
 
@@ -367,12 +353,12 @@ window.SITE_CONTENT = {
      To add one, copy a line. To hide the whole list:  posts: []
      ------------------------------------------------------------------ */
   writing: {
-    note: "Posts written for LinkedIn. Each one explains a single mechanism and names the source it is built on.",
+    note: "Short LinkedIn posts, one mechanism each. The source goes at the bottom so anyone can check it.",
     posts: [
       { topic: "Drug withdrawal",  title: "Withdrawal is not one thing. It is four.", source: "Ross, Br Heart J 1981. ESE and Endocrine Society joint guideline 2024. And others." },
       { topic: "Abacavir",         title: "The drug did not change the immune system. It changed what the immune system was looking at.", source: "Illing et al., Nature 2012. Mallal et al., NEJM 2008." },
       { topic: "Thalidomide",      title: "One pure form goes in. Both come out.", source: "Eriksson et al., Chirality 1995 and 1998." },
-      { topic: "Food and drugs",   title: "Four reasons a drug comes with a food instruction.", source: "" },
+      { topic: "Food and drugs",   title: "Four reasons a drug comes with a food instruction.", source: "" },   // add the source to show this post on the site
       { topic: "Dosage forms",     title: "Oral drugs you must never crush: four mechanisms.", source: "ISMP list of oral dosage forms that should not be crushed." },
       { topic: "Codeine",          title: "Codeine is a courier, not the cure.", source: "Mignat, Life Sciences 1995. Vree, Int J Clin Pract 2000. CPIC 2011." },
       { topic: "Irinotecan",       title: "The liver disarms the chemo. The bacteria re-arm it.", source: "Wallace et al., Science 2010." },
@@ -396,7 +382,7 @@ window.SITE_CONTENT = {
      To hide the whole section, empty the list:  videos: []
      ------------------------------------------------------------------ */
   shorts: {
-    note: "A side project. Short animated explainers on YouTube and Instagram, with every claim sourced in the caption.",
+    note: "A side project: short pixel-art explainers on YouTube and Instagram. Sources are in the captions.",
     videos: [
       { videoId: "saVG_Ka_kcI", title: "Where your painkiller goes after you swallow it" },
       { videoId: "GHDlJOQhN1c", title: "Your liver has 500 jobs, not 1" },
@@ -417,38 +403,41 @@ window.SITE_CONTENT = {
   research: [
     {
       id: "icu-handbook",
+      art: "book",          // small line drawing on the card: "book", "manuscript", "plan" or ""
       label: "The Pakistan ICU Handbook",
       status: "In review",
       title: "The Pakistan ICU Handbook: A Practical Bedside Guide (2026 Edition)",
-      summary: "A practical bedside guide for nurses, junior doctors and pharmacists in Pakistan, with 42 chapters across nine parts.",
-      role: "Editor. I compile, edit and produce the book with a senior colleague who is first author. Content is reviewed by my senior colleague and a doctor.",
+      summary: "A bedside guide for nurses, junior doctors and pharmacists working in ICUs in Pakistan. 42 chapters in nine parts.",
+      role: "Editor. I compile and edit the book and put it together. Adeel Bhutta is first author, and he and a doctor review the content.",
       when: "Aug 2026 to present",
       with: "First author: Adeel Bhutta",
       withUrl: "https://www.linkedin.com/in/adeel-bhutta-8a8839276/",
-      note: "In review. Not published yet.",
+      note: "Not published yet.",
       link: ""
     },
     {
       id: "ppi-narrative-review",
+      art: "manuscript",
       label: "Narrative review on long-term proton pump inhibitor safety",
       status: "Under review",
       title: "Safety of long-term proton pump inhibitor use across renal, bone, and rebound acid hypersecretion outcomes: a critical narrative review of study design, comparators, and mechanisms",
-      summary: "A critical narrative review of long-term proton pump inhibitor (PPI) use, examining renal, bone and rebound acid hypersecretion outcomes, with a focus on study design, comparators and mechanisms.",
+      summary: "A critical look at the evidence on long-term PPI use: kidneys, bones and rebound acid, and how well the studies behind those claims were designed.",
       role: "First and corresponding author",
       when: "Aug 2026 to present",
       with: "Contributor: Adeel Bhutta",
       withUrl: "https://www.linkedin.com/in/adeel-bhutta-8a8839276/",
-      note: "Submitted to the European Journal of Clinical Pharmacology, in peer review.",
+      note: "Submitted to the European Journal of Clinical Pharmacology. In peer review.",
       link: ""
     },
     {
       id: "metabolic-syndrome",
+      art: "plan",
       label: "Metabolic syndrome review and hospital-based study proposal",
       status: "Planned",
       title: "",
       summary: "",
       role: "",
-      note: "Early stage. Learning the background and methods first.",
+      note: "Very early. I'm still learning the background and the methods.",
       link: ""
     }
 
@@ -474,6 +463,7 @@ window.SITE_CONTENT = {
   /* ------------------------------------------------------------------
      8. CERTIFICATES
      verifyUrl: paste the verification link. Empty = no "Verify" button.
+     mark: the short issuer name shown at the top of the card, for example "NIH".
      The FIRST FOUR are shown. The rest appear after "Show all".
      So keep your strongest four at the top.
      ------------------------------------------------------------------ */
@@ -485,17 +475,17 @@ window.SITE_CONTENT = {
   ],
 
   certificates: [
-    { title: "Introduction to the Principles and Practice of Clinical Research", issuer: "The National Institutes of Health (NIH)", date: "May 2026", credentialId: "", verifyUrl: "" },
-    { title: "Career Essentials in Generative AI by Microsoft and LinkedIn", issuer: "Microsoft", date: "June 2026", credentialId: "", verifyUrl: "https://www.linkedin.com/learning/certificates/6cad66929ea55d51d6fb6ea70a23c366d7ca64d855dc07e0ab3a0e200fe8d8e8/" },
-    { title: "AI Fluency for students", issuer: "Anthropic", date: "June 2026", credentialId: "6jofyqazc2kv", verifyUrl: "https://verify.skilljar.com/c/6jofyqazc2kv" },
-    { title: "Claude 101", issuer: "Anthropic", date: "May 2026", credentialId: "g4sry7ykpy26", verifyUrl: "" },
-    { title: "Graphic Design", issuer: "DigiSkills.pk", date: "February 2024", credentialId: "Y7US83HMK", verifyUrl: "https://digiskills.pk/verify" },
-    { title: "Freelancing", issuer: "DigiSkills.pk", date: "February 2024", credentialId: "AJQYJB6MK", verifyUrl: "https://digiskills.pk/verify" },
-    { title: "Communication and Soft Skills", issuer: "DigiSkills.pk", date: "July 2024", credentialId: "XHM9P3PMK", verifyUrl: "https://digiskills.pk/verify" },
-    { title: "Data Analytics and Business Intelligence", issuer: "DigiSkills.pk", date: "July 2024", credentialId: "HJTGXREMK", verifyUrl: "https://digiskills.pk/verify" }
+    { title: "Introduction to the Principles and Practice of Clinical Research", issuer: "The National Institutes of Health (NIH)", mark: "NIH", date: "May 2026", credentialId: "", verifyUrl: "" },
+    { title: "Career Essentials in Generative AI by Microsoft and LinkedIn", issuer: "Microsoft", mark: "Microsoft", date: "June 2026", credentialId: "", verifyUrl: "https://www.linkedin.com/learning/certificates/6cad66929ea55d51d6fb6ea70a23c366d7ca64d855dc07e0ab3a0e200fe8d8e8/" },
+    { title: "AI Fluency for students", issuer: "Anthropic", mark: "Anthropic", date: "June 2026", credentialId: "6jofyqazc2kv", verifyUrl: "https://verify.skilljar.com/c/6jofyqazc2kv" },
+    { title: "Claude 101", issuer: "Anthropic", mark: "Anthropic", date: "May 2026", credentialId: "g4sry7ykpy26", verifyUrl: "" },
+    { title: "Graphic Design", issuer: "DigiSkills.pk", mark: "DigiSkills", date: "February 2024", credentialId: "Y7US83HMK", verifyUrl: "https://digiskills.pk/verify" },
+    { title: "Freelancing", issuer: "DigiSkills.pk", mark: "DigiSkills", date: "February 2024", credentialId: "AJQYJB6MK", verifyUrl: "https://digiskills.pk/verify" },
+    { title: "Communication and Soft Skills", issuer: "DigiSkills.pk", mark: "DigiSkills", date: "July 2024", credentialId: "XHM9P3PMK", verifyUrl: "https://digiskills.pk/verify" },
+    { title: "Data Analytics and Business Intelligence", issuer: "DigiSkills.pk", mark: "DigiSkills", date: "July 2024", credentialId: "HJTGXREMK", verifyUrl: "https://digiskills.pk/verify" }
 
     /* ================= TEMPLATE: CERTIFICATE ===========================
-    { title: "", issuer: "", date: "", credentialId: "", verifyUrl: "" },
+    { title: "", issuer: "", mark: "", date: "", credentialId: "", verifyUrl: "" },
     ==================================================================== */
   ],
 
@@ -505,17 +495,17 @@ window.SITE_CONTENT = {
      ------------------------------------------------------------------ */
   about: {
     bio: [
-      "I am a third-year PharmD student at Allied Institute of Medical Sciences, Multan (University of the Punjab), with a focus on pharmacology and clinical pharmacy.",
-      "I turn drug mechanisms into clear visuals, and I am learning to do research properly. My long-term goal is a research career, with a funded PhD abroad.",
-      "I care about getting the pharmacology right before making it look good, and my seniors review what I produce."
+      "I'm a third-year PharmD student at Allied Institute of Medical Sciences, Multan (University of the Punjab).",
+      "I make infographics and 3D learning tools that explain how drugs work, for pharmacy and medical students. My long-term goal is a PhD and a career in research.",
+      "I want the pharmacology to be right before it looks good, so my seniors review my work before it goes out."
     ],
     doing: [
-      { name: "GhufranMedDesigns", text: "Infographics and short animations that explain how drugs work, made for pharmacy and medical students and shared on LinkedIn and Facebook." },
-      { name: "The Pakistan ICU Handbook", text: "A practical bedside guide for nurses, junior doctors and pharmacists. I edit and compile it with a senior colleague, and it is now in review." },
-      { name: "A narrative review", text: "Submitted to a journal and in peer review." }
+      { name: "GhufranMedDesigns", text: "My page for infographics and short animations about how drugs work. I post on LinkedIn and Facebook." },
+      { name: "The Pakistan ICU Handbook", text: "A bedside guide for ICU staff. I'm the editor, working with Adeel Bhutta. It's in review now." },
+      { name: "A review article", text: "On long-term PPI safety. Submitted and in peer review." }
     ],
-    building: "Research skills: reading papers critically, study design and scientific writing. I completed NIH's Introduction to the Principles and Practice of Clinical Research course, and I know I am at the beginning.",
-    connect: "If you are a researcher, clinical pharmacist or senior student with advice for someone starting out, I would be glad to hear from you.",
+    building: "Reading papers critically, study design and scientific writing. I finished the NIH clinical research course. I'm now on an NIH clinical pharmacology course, with two Coursera courses next.",
+    connect: "If you're a researcher, a clinical pharmacist or a senior student and you have advice for someone just starting, please message me.",
     education: [
       {
         degree: "Doctor of Pharmacy (PharmD)",
@@ -531,14 +521,13 @@ window.SITE_CONTENT = {
       }
     ],
     goals: [
-      "Build real research skills, one method at a time.",
-      "A research career.",
-      "A funded PhD abroad."
+      "Get good at research methods, one at a time.",
+      "A PhD, then a career in research."
     ],
     skills: ["Pharmacology", "Medical Writing", "Research Skills", "Scientific Writing", "Clinical Pharmacology", "Clinical Pharmacy", "Pharmacognosy", "Infographics", "Graphic Design", "Canva", "Data Visualization", "Literature Review", "Clinical Trials"],
     activities: [
       { name: "Member, International Society of Oncology Pharmacy Practitioners (ISOPP)", when: "Jun 2026 to present", text: "" },
-      { name: "Active Member, Student Society, Allied Institute of Medical Sciences", when: "Mar 2025 to present", text: "Helped organize and run college events." }
+      { name: "Active Member, Student Society, Allied Institute of Medical Sciences", when: "Mar 2025 to present", text: "I help with event management and arts and crafts for college events." }
     ]
   }
 };
